@@ -54,9 +54,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.transparent,
+            backgroundColor: Colors.white,
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(250),
+              preferredSize: Size.fromHeight(170),
               child: Column(
                 children: <Widget>[
                   TopDeck(
@@ -65,27 +65,30 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     known: 9076,
                     knows: 545,
                   ),
-                  TabBar(
-                      controller: tc,
-                      labelColor: Colors.black,
-                      unselectedLabelColor: Colors.amberAccent,
-                      tabs: [
-                        Icon(
-                          Icons.photo_size_select_actual,
-                          color: Colors.black,
-                          size: 28,
-                        ),
-                        Icon(
-                          Icons.link,
-                          color: Colors.black,
-                          size: 28,
-                        ),
-                        Icon(
-                          Icons.dashboard,
-                          color: Colors.black,
-                          size: 28,
-                        )
-                      ]),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: TabBar(
+                        controller: tc,
+                        labelColor: Colors.black,
+                        unselectedLabelColor: Colors.amberAccent,
+                        tabs: [
+                          Icon(
+                            Icons.photo_size_select_actual,
+                            color: Colors.black,
+                            size: 28,
+                          ),
+                          Icon(
+                            Icons.link,
+                            color: Colors.black,
+                            size: 28,
+                          ),
+                          Icon(
+                            Icons.dashboard,
+                            color: Colors.black,
+                            size: 28,
+                          )
+                        ]),
+                  ),
                 ],
               ),
             )),

@@ -11,36 +11,49 @@ class TopDeck extends StatelessWidget {
       color: Colors.white,
       child: Column(
         children: <Widget>[
-          SizedBox(
-            height: 36,
-          ),
-          CircleAvatar(
-            radius: 48,
-            backgroundImage: AssetImage("assets/images/avatar1.jpg"),
-          ),
-          SizedBox(
-            height: 16,
+          Padding(
+            padding: const EdgeInsets.only(top: 7),
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                userName,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
+              ),
+            ),
           ),
           Text(
-            userName,
+            "PROFESSION",
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: 22,
+              fontSize: 14,
             ),
           ),
-          SizedBox(
-            height: 4,
-          ),
           Text(
-            bio,
+            '''Hi i am a sexy whore with 69 husbands.
+            And the nigga just decided to fuck
+            my whore like that 
+            like wtf''',
+            textAlign: TextAlign.left,
             style: TextStyle(
               color: Colors.black,
               fontSize: 14,
             ),
           ),
           Container(
-            height: 64,
+            height: 120,
+            alignment: Alignment.topRight,
+            child: CircleAvatar(
+              radius: 48,
+              backgroundImage: NetworkImage(
+                  "https://3.bp.blogspot.com/-SrO5Ne-mVPw/V3BxIbsXVrI/AAAAAAAAABM/KldO6VonLFsHnDnnV0TOyZRlCecg6SjCwCLcB/s640/batman_derp_o_3_o_by_xxlovelydarkness-d5nyupy%255B1%255D.png"),
+            ),
+          ),
+          Container(
             color: Colors.white,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -53,9 +66,6 @@ class TopDeck extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      SizedBox(
-                        height: 4,
-                      ),
                       Text(
                         "POST",
                         style: TextStyle(
