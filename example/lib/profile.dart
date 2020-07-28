@@ -2,6 +2,9 @@ import 'package:example/topdeck.dart';
 import 'package:flutter/material.dart';
 
 class Profilepage extends StatelessWidget {
+  final String url =
+      "https://i.imgur.com/XzrRxP6_d.webp?maxwidth=728&fidelity=grand";
+
   List<Widget> texts = new List();
   @override
   Widget build(BuildContext context) {
@@ -61,10 +64,7 @@ class Profilepage extends StatelessWidget {
             mainAxisSpacing: 4,
             physics: BouncingScrollPhysics(),
             children: List.generate(12, (index) {
-              return Container(
-                child: Image.network(
-                    "https://www.bolde.com/wp-content/uploads/2016/03/iStock_000051767718_Small-e1457999915457-400x366.jpg"),
-              );
+              return Image.network(url);
             }),
           ),
         ),
