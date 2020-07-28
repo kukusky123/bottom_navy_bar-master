@@ -59,12 +59,19 @@ class Profilepage extends StatelessWidget {
         ),
         Expanded(
           child: GridView.count(
-            crossAxisCount: 3,
-            crossAxisSpacing: 4,
-            mainAxisSpacing: 4,
+            crossAxisCount: 4,
+            crossAxisSpacing: 2,
+            mainAxisSpacing: 2,
             physics: BouncingScrollPhysics(),
-            children: List.generate(12, (index) {
-              return Image.network(url);
+            children: List.generate(30, (index) {
+              return ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.network(
+                    url,
+                    height: 150.0,
+                    width: 100.0,
+                    fit: BoxFit.fill,
+                  ));
             }),
           ),
         ),
