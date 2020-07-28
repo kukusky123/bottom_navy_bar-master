@@ -55,15 +55,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     return Scaffold(
         appBar: AppBar(
             title: Center(
+              //TODO: Show user Name
               child: Text(
-                "KNOWN",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+                "Kuchuk Borom Debbarma",
+                textAlign: TextAlign.start,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
             backgroundColor: Colors.black,
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(300),
+              preferredSize: Size.fromHeight(180),
               child: Column(
                 children: <Widget>[
                   TopDeck(
@@ -81,17 +82,17 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         tabs: [
                           Icon(
                             Icons.photo_size_select_actual,
-                            color: Colors.black,
+                            color: Colors.white,
                             size: 28,
                           ),
                           Icon(
                             Icons.link,
-                            color: Colors.black,
+                            color: Colors.white,
                             size: 28,
                           ),
                           Icon(
                             Icons.dashboard,
-                            color: Colors.black,
+                            color: Colors.white,
                             size: 28,
                           )
                         ]),

@@ -11,20 +11,6 @@ class TopDeck extends StatelessWidget {
       color: Colors.white,
       child: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top: 7),
-            child: Container(
-              alignment: Alignment.center,
-              child: Text(
-                userName,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                ),
-              ),
-            ),
-          ),
           Text(
             "PROFESSION",
             style: TextStyle(
@@ -32,28 +18,6 @@ class TopDeck extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 14,
             ),
-          ),
-          Row(
-            children: <Widget>[
-              Text(
-                '''Hi i am a sexy whore with 69 husbands. And the nigga just decided to fuck my whore like that like wtf''',
-                textDirection: TextDirection.ltr,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                ),
-              ),
-              Container(
-                height: 120,
-                alignment: Alignment.topRight,
-                child: CircleAvatar(
-                  radius: 48,
-                  backgroundImage: NetworkImage(
-                      "https://data.whicdn.com/images/318658700/original.jpg"),
-                ),
-              ),
-            ],
           ),
           Container(
             color: Colors.white,
@@ -141,8 +105,36 @@ class TopDeck extends StatelessWidget {
                 Expanded(
                   child: Container(),
                 ),
+                Container(
+                  height: 120,
+                  alignment: Alignment.topRight,
+                  child: CircleAvatar(
+                    radius: 48,
+                    backgroundImage: NetworkImage(
+                        "https://data.whicdn.com/images/318658700/original.jpg"),
+                  ),
+                ),
               ],
             ),
+          ),
+          Row(
+            children: <Widget>[
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 0, 0, 10),
+                  child: Text(
+                    '''Hi i am a sexy whore with 69 husbands. And the nigga just decided to fuck my whore like that like wtf but the nigger is like wtf hoe i am n[ot goin to fuck this stinky pussy asd d fdf g hgf gff gh gfh h rtyh tyh jy j  fgh gh thy jy tuty j  dfgd fgd fg df gdf gd fg fg dfg dfgdpofh pofighdo ffdf  podyfgpodhfg df f gpdfh gdfuh gdio fdf iuhgfiufhg dofuh ouh iouh oiu hiouh iuio ''',
+                    textDirection: TextDirection.ltr,
+                    maxLines: 1,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
