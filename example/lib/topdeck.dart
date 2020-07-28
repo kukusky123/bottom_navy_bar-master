@@ -21,7 +21,7 @@ class TopDeck extends StatelessWidget {
             backgroundImage: AssetImage("assets/images/avatar1.jpg"),
           ),
           SizedBox(
-            height: 16,
+            height: 3,
           ),
           Text(
             userName,
@@ -32,7 +32,7 @@ class TopDeck extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 4,
+            height: 2,
           ),
           Text(
             bio,
