@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
 class PictureTab extends StatelessWidget {
-  final String url;
-  PictureTab(this.url);
+  final List<String> urls;
+  PictureTab({this.urls});
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: GridView.count(
-        crossAxisCount: 4,
+        crossAxisCount: 3,
         crossAxisSpacing: 5,
         mainAxisSpacing: 5,
         physics: BouncingScrollPhysics(),
-        children: List.generate(30, (index) {
+        children: List.generate(urls.length, (index) {
           return ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.network(
-                url,
+                urls[index],
                 height: 150.0,
                 width: 100.0,
                 fit: BoxFit.fill,
