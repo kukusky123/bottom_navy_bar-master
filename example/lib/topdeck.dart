@@ -41,9 +41,6 @@ class TopDeck extends StatelessWidget {
               fontSize: 14,
             ),
           ),
-          Expanded(
-            child: Container(),
-          ),
           Container(
             height: 64,
             color: Colors.white,

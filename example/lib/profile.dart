@@ -25,10 +25,10 @@ class Profilepage extends StatelessWidget {
     return Column(
       children: <Widget>[
         TopDeck(
-          userName: 'rfhooker',
-          bio: 'free bow jobs',
-          known: 300,
-          knows: 3000,
+          userName: 'Amelia',
+          bio: 'VFX artist',
+          known: 9076,
+          knows: 545,
         ),
         Container(
           color: Colors.black,
@@ -58,13 +58,26 @@ class Profilepage extends StatelessWidget {
           alignment: Alignment.topCenter,
           height: 100,
           child: GridView.count(
-              crossAxisCount: 2,
-              children: List.generate(texts.length, (index) {
-                return Image(
-                    image: NetworkImage(
-                        "https://i.ytimg.com/vi/msCO9CLZfT0/hqdefault.jpg"));
-              })),
-        )
+            crossAxisCount: 3,
+            crossAxisSpacing: 4,
+            mainAxisSpacing: 4,
+            physics: BouncingScrollPhysics(),
+            children: List.generate(12, (index) {
+              return Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  image: DecorationImage(
+                    image: AssetImage(
+                        "assets/images/photo_" + index.toString() + ".jpg"),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              );
+            }),
+          ),
+        ),
       ],
     );
   }
