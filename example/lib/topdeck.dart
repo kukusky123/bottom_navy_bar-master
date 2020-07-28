@@ -14,7 +14,7 @@ class TopDeck extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 7),
             child: Container(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.center,
               child: Text(
                 userName,
                 style: TextStyle(
@@ -33,25 +33,26 @@ class TopDeck extends StatelessWidget {
               fontSize: 14,
             ),
           ),
-          Text(
-            '''Hi i am a sexy whore with 69 husbands.
-            And the nigga just decided to fuck
-            my whore like that 
-            like wtf''',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 14,
-            ),
-          ),
-          Container(
-            height: 120,
-            alignment: Alignment.topRight,
-            child: CircleAvatar(
-              radius: 48,
-              backgroundImage: NetworkImage(
-                  "https://3.bp.blogspot.com/-SrO5Ne-mVPw/V3BxIbsXVrI/AAAAAAAAABM/KldO6VonLFsHnDnnV0TOyZRlCecg6SjCwCLcB/s640/batman_derp_o_3_o_by_xxlovelydarkness-d5nyupy%255B1%255D.png"),
-            ),
+          Row(
+            children: <Widget>[
+              Text(
+                '''Hi i am a sexy whore with 69 husbands. And the nigga just decided to fuck my whore like that like wtf''',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                ),
+              ),
+              Container(
+                height: 120,
+                alignment: Alignment.topRight,
+                child: CircleAvatar(
+                  radius: 48,
+                  backgroundImage: NetworkImage(
+                      "https://data.whicdn.com/images/318658700/original.jpg"),
+                ),
+              ),
+            ],
           ),
           Container(
             color: Colors.white,

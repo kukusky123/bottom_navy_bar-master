@@ -54,9 +54,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.white,
+            title: Center(
+              child: Text(
+                "KNOWN",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+              ),
+            ),
+            backgroundColor: Colors.black,
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(170),
+              preferredSize: Size.fromHeight(300),
               child: Column(
                 children: <Widget>[
                   TopDeck(
