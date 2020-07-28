@@ -26,10 +26,10 @@ class Profilepage extends StatelessWidget {
     return Column(
       children: <Widget>[
         TopDeck(
-          userName: 'hooker',
-          bio: 'free bow jobs',
-          known: 300,
-          knows: 3000,
+          userName: 'Amelia',
+          bio: 'VFX artist',
+          known: 9076,
+          knows: 545,
         ),
         Container(
           color: Colors.black,
@@ -58,7 +58,7 @@ class Profilepage extends StatelessWidget {
         Container(
           height: size.height * 0.60 - 115,
           child: GridView.count(
-            crossAxisCount: 2,
+            crossAxisCount: 3,
             crossAxisSpacing: 4,
             mainAxisSpacing: 4,
             physics: BouncingScrollPhysics(),
