@@ -54,9 +54,7 @@ class Profilepage extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          alignment: Alignment.topCenter,
-          height: 100,
+        Expanded(
           child: GridView.count(
             crossAxisCount: 3,
             crossAxisSpacing: 4,
@@ -64,16 +62,8 @@ class Profilepage extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             children: List.generate(12, (index) {
               return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                  image: DecorationImage(
-                    image: AssetImage(
-                        "assets/images/photo_" + index.toString() + ".jpg"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                child: Image.network(
+                    "https://www.bolde.com/wp-content/uploads/2016/03/iStock_000051767718_Small-e1457999915457-400x366.jpg"),
               );
             }),
           ),
