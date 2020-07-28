@@ -7,9 +7,7 @@ class TopDeck extends StatelessWidget {
   TopDeck({this.bio, this.known, this.knows, this.userName});
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.40,
       color: Colors.white,
       child: Column(
         children: <Widget>[

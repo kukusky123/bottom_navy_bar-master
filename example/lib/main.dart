@@ -1,5 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:example/profile.dart';
+import 'package:example/profile.Body.dart';
+import 'package:example/tabbody/Link.dart';
+import 'package:example/tabbody/pics.dart';
+import 'package:example/topdeck.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
 //import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -28,56 +31,109 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   int currentIndex = 0;
+  TabController tc;
+  final String url =
+      "https://i.imgur.com/XzrRxP6_d.webp?maxwidth=728&fidelity=grand";
+
+  @override
+  void initState() {
+    super.initState();
+    tc = new TabController(length: 3, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    tc.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: currentIndex,
-        showElevation: true,
-        itemCornerRadius: 10,
-        curve: Curves.easeInCirc,
-        onItemSelected: (index) => setState(() {
-          currentIndex = index;
-        }),
-        items: [
-          BottomNavyBarItem(
-            icon: Icon(Icons.account_circle),
-            title: Text('Account'),
-            activeColor: Colors.black,
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(LineAwesomeIcons.search_plus),
-            title: Text('Search'),
-            activeColor: Colors.black,
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(LineAwesomeIcons.home),
-            title: Text('Home'),
-            activeColor: Colors.black,
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.change_history),
-            title: Text(
-              'Activity',
+        appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(250),
+              child: Column(
+                children: <Widget>[
+                  TopDeck(
+                    userName: 'Amelia',
+                    bio: 'VFX artist',
+                    known: 9076,
+                    knows: 545,
+                  ),
+                  TabBar(
+                      controller: tc,
+                      labelColor: Colors.black,
+                      unselectedLabelColor: Colors.amberAccent,
+                      tabs: [
+                        Icon(
+                          Icons.photo_size_select_actual,
+                          color: Colors.black,
+                          size: 28,
+                        ),
+                        Icon(
+                          Icons.link,
+                          color: Colors.black,
+                          size: 28,
+                        ),
+                        Icon(
+                          Icons.dashboard,
+                          color: Colors.black,
+                          size: 28,
+                        )
+                      ]),
+                ],
+              ),
+            )),
+        body: TabBarView(
+            controller: tc,
+            children: [PictureTab(url), LinkTab(), PictureTab(url)]),
+        bottomNavigationBar: BottomNavyBar(
+          selectedIndex: currentIndex,
+          showElevation: true,
+          itemCornerRadius: 10,
+          curve: Curves.easeInCirc,
+          onItemSelected: (index) => setState(() {
+            currentIndex = index;
+          }),
+          items: [
+            BottomNavyBarItem(
+              icon: Icon(Icons.account_circle),
+              title: Text('Account'),
+              activeColor: Colors.black,
+              textAlign: TextAlign.center,
             ),
-            activeColor: Colors.black,
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.add),
-            title: Text('Post'),
-            activeColor: Colors.black,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
-      body: Profilepage(),
-    );
+            BottomNavyBarItem(
+              icon: Icon(LineAwesomeIcons.search_plus),
+              title: Text('Search'),
+              activeColor: Colors.black,
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: Icon(LineAwesomeIcons.home),
+              title: Text('Home'),
+              activeColor: Colors.black,
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: Icon(Icons.change_history),
+              title: Text(
+                'Activity',
+              ),
+              activeColor: Colors.black,
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: Icon(Icons.add),
+              title: Text('Post'),
+              activeColor: Colors.black,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ));
   }
 }
