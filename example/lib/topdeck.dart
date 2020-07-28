@@ -37,6 +37,7 @@ class TopDeck extends StatelessWidget {
             children: <Widget>[
               Text(
                 '''Hi i am a sexy whore with 69 husbands. And the nigga just decided to fuck my whore like that like wtf''',
+                textDirection: TextDirection.ltr,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   color: Colors.black,
