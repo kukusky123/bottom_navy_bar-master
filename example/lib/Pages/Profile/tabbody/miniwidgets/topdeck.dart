@@ -1,4 +1,3 @@
-import 'package:example/Pages/Profile/tabbody/miniwidgets/ShowImage.dart';
 import 'package:flutter/material.dart';
 
 class TopDeck extends StatelessWidget {
@@ -108,20 +107,11 @@ class TopDeck extends StatelessWidget {
                   ),
                 ),
               ),
-              Hero(
-                tag: "pic",
-                child: GestureDetector(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ShowImage(
-                              "https://ayo.news/wp-content/uploads/2020/03/Pokimane-e1583494860852.jpg"))),
-                  child: CircleAvatar(
-                    radius: 70,
-                    backgroundImage: NetworkImage(
-                        "https://ayo.news/wp-content/uploads/2020/03/Pokimane-e1583494860852.jpg"),
-                  ),
-                ),
+              CircleAvatar(
+                radius: 70,
+                backgroundColor: Colors.white,
+                backgroundImage: NetworkImage(
+                    "https://ayo.news/wp-content/uploads/2020/03/Pokimane-e1583494860852.jpg"),
               )
             ],
           ),

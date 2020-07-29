@@ -7,28 +7,32 @@ class PictureTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      crossAxisCount: 3,
+      crossAxisCount: 10,
       crossAxisSpacing: 5,
       mainAxisSpacing: 5,
       physics: BouncingScrollPhysics(),
       children: List.generate(urls.length, (index) {
+        String tag = index.toString() + "pic";
         return GestureDetector(
-          onTap: () => {},
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: Image.network(
-                urls[index],
-                height: 150.0,
-                width: 100.0,
-                fit: BoxFit.fill,
-              )),
+          onTap: () => heroTransgender(urls[index], context, tag),
+          child: Hero(
+            tag: tag,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.network(
+                  urls[index],
+                  height: 150.0,
+                  width: 100.0,
+                  fit: BoxFit.fill,
+                )),
+          ),
         );
       }),
     );
   }
 
-  heroTransgender(String url, BuildContext context) {
+  heroTransgender(String url, BuildContext context, String tag) {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => ShowImage(url)));
+        context, MaterialPageRoute(builder: (context) => ShowImage(url, tag)));
   }
 }
