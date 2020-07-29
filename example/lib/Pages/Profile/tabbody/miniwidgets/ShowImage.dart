@@ -3,14 +3,13 @@ import 'package:photo_view/photo_view.dart';
 
 class ShowImage extends StatelessWidget {
   final String url;
-  final String tag;
-  ShowImage(this.url, this.tag);
+  ShowImage(this.url);
   @override
   Widget build(BuildContext context) {
     return PhotoView(
       imageProvider: NetworkImage(url),
       basePosition: Alignment.center,
-      minScale: 0.3,
+      minScale: 0.2,
       tightMode: true,
       maxScale: 3.0,
     );
