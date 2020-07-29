@@ -1,11 +1,8 @@
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:example/tabbody/Document.dart';
-import 'package:example/tabbody/Link.dart';
-import 'package:example/tabbody/pics.dart';
-import 'package:example/topdeck.dart';
+import 'package:example/ProfileBody/Body/TabbarView.dart';
+import 'package:example/ProfileBody/appbar/Appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:line_awesome_icons/line_awesome_icons.dart';
-//import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+import 'NavigationBar/customNav.dart';
 
 void main() => runApp(MyApp());
 
@@ -72,7 +69,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     tc.dispose();
     super.dispose();
   }
@@ -80,94 +76,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.black,
-            bottom: PreferredSize(
-              preferredSize: Size.fromHeight(145),
-              child: Column(
-                children: <Widget>[
-                  TopDeck(
-                    userName: 'Amelia',
-                    bio: 'VFX artist',
-                    known: 9076,
-                    knows: 545,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: TabBar(
-                        controller: tc,
-                        labelColor: Colors.black,
-                        unselectedLabelColor: Colors.amberAccent,
-                        tabs: [
-                          Icon(
-                            Icons.photo_size_select_actual,
-                            color: Colors.white,
-                            size: 28,
-                          ),
-                          Icon(
-                            Icons.link,
-                            color: Colors.white,
-                            size: 28,
-                          ),
-                          Icon(
-                            Icons.dashboard,
-                            color: Colors.white,
-                            size: 28,
-                          )
-                        ]),
-                  ),
-                ],
-              ),
-            )),
-        body: TabBarView(controller: tc, children: [
-          PictureTab(
-            urls: urlForPics,
-          ),
-          LinkTab(),
-          DocTab()
-        ]),
-        bottomNavigationBar: BottomNavyBar(
-          selectedIndex: currentIndex,
-          showElevation: true,
-          itemCornerRadius: 10,
-          curve: Curves.easeInCirc,
-          onItemSelected: (index) => setState(() {
-            currentIndex = index;
-          }),
-          items: [
-            BottomNavyBarItem(
-              icon: Icon(Icons.account_circle),
-              title: Text('Account'),
-              activeColor: Colors.black,
-              textAlign: TextAlign.center,
-            ),
-            BottomNavyBarItem(
-              icon: Icon(LineAwesomeIcons.search_plus),
-              title: Text('Search'),
-              activeColor: Colors.black,
-              textAlign: TextAlign.center,
-            ),
-            BottomNavyBarItem(
-              icon: Icon(LineAwesomeIcons.home),
-              title: Text('Home'),
-              activeColor: Colors.black,
-              textAlign: TextAlign.center,
-            ),
-            BottomNavyBarItem(
-              icon: Icon(Icons.change_history),
-              title: Text(
-                'Activity',
-              ),
-              activeColor: Colors.black,
-              textAlign: TextAlign.center,
-            ),
-            BottomNavyBarItem(
-              icon: Icon(Icons.add),
-              title: Text('Post'),
-              activeColor: Colors.black,
-              textAlign: TextAlign.center,
-            ),
-          ],
+        appBar: ProfileAppbar(
+          tc: tc,
+          preferredSize: Size.fromHeight(205),
+        ),
+        body: ProfileBody(
+          tc: tc,
+          url: urlForPics,
+        ),
+        bottomNavigationBar: BottomNav(
+          currentIndex: 0,
         ));
   }
 }

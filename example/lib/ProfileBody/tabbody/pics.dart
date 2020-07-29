@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//TODO: wrap the body into pageView so that we can rebuild with good animation
 class PictureTab extends StatelessWidget {
   final List<String> urls;
   PictureTab({this.urls});
