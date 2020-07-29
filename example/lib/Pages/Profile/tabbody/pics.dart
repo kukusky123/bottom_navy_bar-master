@@ -1,3 +1,4 @@
+import 'package:example/Pages/Profile/tabbody/miniwidgets/ShowImage.dart';
 import 'package:flutter/material.dart';
 
 class PictureTab extends StatelessWidget {
@@ -11,15 +12,23 @@ class PictureTab extends StatelessWidget {
       mainAxisSpacing: 5,
       physics: BouncingScrollPhysics(),
       children: List.generate(urls.length, (index) {
-        return ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: Image.network(
-              urls[index],
-              height: 150.0,
-              width: 100.0,
-              fit: BoxFit.fill,
-            ));
+        return GestureDetector(
+          onTap: () => {},
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.network(
+                urls[index],
+                height: 150.0,
+                width: 100.0,
+                fit: BoxFit.fill,
+              )),
+        );
       }),
     );
+  }
+
+  heroTransgender(String url, BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ShowImage(url)));
   }
 }
