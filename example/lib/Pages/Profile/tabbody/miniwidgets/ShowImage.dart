@@ -7,14 +7,19 @@ class ShowImage extends StatelessWidget {
   ShowImage(this.url, this.tag);
   @override
   Widget build(BuildContext context) {
-    return Hero(
-        tag: "pic",
-        child: PhotoView(
-          imageProvider: NetworkImage(url),
-          basePosition: Alignment.center,
-          minScale: 0.3,
-          tightMode: true,
-          maxScale: 3.0,
-        ));
+    return PhotoView(
+      imageProvider: NetworkImage(url),
+      basePosition: Alignment.center,
+      minScale: 0.3,
+      tightMode: true,
+      maxScale: 3.0,
+    );
+  }
+
+  dragDown(DragEndDetails dg, BuildContext context) {
+    print(dg.primaryVelocity);
+    if (dg.primaryVelocity > 300.0 || dg.primaryVelocity < -300.0) {
+      Navigator.pop(context);
+    }
   }
 }

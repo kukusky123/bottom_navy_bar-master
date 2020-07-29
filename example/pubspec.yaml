@@ -20,6 +20,8 @@ dependencies:
   flutter:
     sdk: flutter
   photo_view: ^0.9.2
+  flutter_swiper: ^1.1.6
+
 
   line_awesome_icons:
   # The following adds the Cupertino Icons font to your application.

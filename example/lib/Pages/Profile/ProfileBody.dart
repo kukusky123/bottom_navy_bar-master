@@ -14,12 +14,15 @@ class ProfileBody extends StatefulWidget {
 class _ProfileBodyState extends State<ProfileBody> {
   @override
   Widget build(BuildContext context) {
-    return TabBarView(controller: widget.tc, children: [
-      PictureTab(
-        urls: widget.url,
-      ),
-      LinkTab(),
-      DocTab()
-    ]);
+    return TabBarView(
+        physics: NeverScrollableScrollPhysics(),
+        controller: widget.tc,
+        children: [
+          PictureTab(
+            urls: widget.url,
+          ),
+          LinkTab(),
+          DocTab()
+        ]);
   }
 }
