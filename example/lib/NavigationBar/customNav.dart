@@ -3,21 +3,10 @@ import 'package:line_awesome_icons/line_awesome_icons.dart';
 
 import 'customNavASLibrary.dart';
 
-class BottomNav extends StatefulWidget {
+class BottomNav extends StatelessWidget {
+  final Function onItemSelect;
   final int currentIndex;
-  BottomNav({this.currentIndex});
-  @override
-  _BottomNavState createState() => _BottomNavState();
-}
-
-class _BottomNavState extends State<BottomNav> {
-  int currentIndex;
-  @override
-  void initState() {
-    super.initState();
-    currentIndex = widget.currentIndex;
-  }
-
+  BottomNav({this.currentIndex, this.onItemSelect});
   @override
   Widget build(BuildContext context) {
     return BottomNavyBar(
@@ -25,9 +14,7 @@ class _BottomNavState extends State<BottomNav> {
       showElevation: true,
       itemCornerRadius: 10,
       curve: Curves.easeInCirc,
-      onItemSelected: (index) => setState(() {
-        currentIndex = index;
-      }),
+      onItemSelected: (index) => onItemSelect(index),
       items: [
         BottomNavyBarItem(
           icon: Icon(Icons.account_circle),

@@ -1,4 +1,8 @@
+import 'package:example/Pages/Feed/FeedMain.dart';
 import 'package:example/Pages/Profile/MainProfileUI.dart';
+import 'package:example/Pages/Search/SearchMain.dart';
+import 'package:example/Pages/activity/ActivityMain.dart';
+import 'package:example/Pages/post/PostMain.dart';
 import 'package:flutter/material.dart';
 
 import 'NavigationBar/customNav.dart';
@@ -28,9 +32,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  PageController pg;
+  List<Widget> pages;
+  int navIndex = 0;
   List<String> urlForPics;
-  int currentIndex = 0;
   TabController tc;
   final String url =
       "https://i.imgur.com/XzrRxP6_d.webp?maxwidth=728&fidelity=grand";
@@ -38,7 +42,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    pg = new PageController(initialPage: 0);
+    pages = new List();
+
     tc = new TabController(length: 3, vsync: this);
     urlForPics = new List();
     urlForPics.add(
@@ -66,6 +71,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKyH727LvcNc1IbLtFPQNiDJv3XMln91YsJA&usqp=CAU");
     urlForPics.add(
         "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBXi1KDABB3KbbR46Up4MjR8Qlq3VhjXiwWw&usqp=CAU");
+
+    pages.add(ProfileMain(
+      urlList: urlForPics,
+    ));
+    pages.add(SearchMain());
+    pages.add(FeedMain());
+    pages.add(ActivityMain());
+    pages.add(PostMain());
   }
 
   @override
@@ -77,12 +90,21 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ProfileMain(
-          urlList: urlForPics,
-        ),
+        body: pages[navIndex],
+        //ProfileMain(
+        //   urlList: urlForPics,
+        // ),
         bottomNavigationBar: BottomNav(
-          currentIndex: 0,
+          currentIndex: navIndex,
+          onItemSelect: (i) => changePage(i),
         ));
+  }
+
+  changePage(i) {
+    setState(() {
+      navIndex = i;
+      print(i.toString() + " is the nav postion");
+    });
   }
 }
 /**
