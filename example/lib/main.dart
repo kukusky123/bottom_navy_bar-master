@@ -1,5 +1,4 @@
-import 'package:example/ProfileBody/Body/TabbarView.dart';
-import 'package:example/ProfileBody/appbar/Appbar.dart';
+import 'package:example/Pages/Profile/MainProfileUI.dart';
 import 'package:flutter/material.dart';
 
 import 'NavigationBar/customNav.dart';
@@ -29,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+  PageController pg;
   List<String> urlForPics;
   int currentIndex = 0;
   TabController tc;
@@ -38,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    pg = new PageController(initialPage: 0);
     tc = new TabController(length: 3, vsync: this);
     urlForPics = new List();
     urlForPics.add(
@@ -76,13 +77,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: ProfileAppbar(
-          tc: tc,
-          preferredSize: Size.fromHeight(205),
-        ),
-        body: ProfileBody(
-          tc: tc,
-          url: urlForPics,
+        body: ProfileMain(
+          urlList: urlForPics,
         ),
         bottomNavigationBar: BottomNav(
           currentIndex: 0,

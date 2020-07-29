@@ -1,6 +1,6 @@
-import 'package:example/ProfileBody/tabbody/Document.dart';
-import 'package:example/ProfileBody/tabbody/Link.dart';
-import 'package:example/ProfileBody/tabbody/pics.dart';
+import 'package:example/Pages/Profile/tabbody/Document.dart';
+import 'package:example/Pages/Profile/tabbody/Link.dart';
+import 'package:example/Pages/Profile/tabbody/pics.dart';
 import 'package:flutter/material.dart';
 
 class ProfileBody extends StatefulWidget {
