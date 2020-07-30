@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
 
-class TopDeck extends StatelessWidget {
+class TopDeck extends StatefulWidget {
   //PICTURE FOR FUTURE
+  final Function onExpandBio;
   final String userName, bio;
   final int known, knows;
-  TopDeck({this.bio, this.known, this.knows, this.userName});
+  TopDeck({this.bio, this.known, this.knows, this.userName, this.onExpandBio});
+
+  @override
+  _TopDeckState createState() => _TopDeckState();
+}
+
+class _TopDeckState extends State<TopDeck> {
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
 
             //DATA + DP
@@ -24,30 +31,6 @@ class TopDeck extends StatelessWidget {
                 borderOnForeground: true,
                 semanticContainer: true,
                 elevation: 0,
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Post",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        '69',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ),
               Card(
                 borderOnForeground: true,
@@ -78,6 +61,12 @@ class TopDeck extends StatelessWidget {
                   ),
                 ),
               ),
+              CircleAvatar(
+                radius: 70,
+                backgroundColor: Colors.white,
+                backgroundImage: NetworkImage(
+                    "https://ayo.news/wp-content/uploads/2020/03/Pokimane-e1583494860852.jpg"),
+              ),
               Card(
                 borderOnForeground: true,
                 semanticContainer: true,
@@ -107,12 +96,6 @@ class TopDeck extends StatelessWidget {
                   ),
                 ),
               ),
-              CircleAvatar(
-                radius: 70,
-                backgroundColor: Colors.white,
-                backgroundImage: NetworkImage(
-                    "https://ayo.news/wp-content/uploads/2020/03/Pokimane-e1583494860852.jpg"),
-              )
             ],
           ),
           Text(
@@ -123,6 +106,36 @@ class TopDeck extends StatelessWidget {
               fontSize: 18,
             ),
           ),
+          Text(
+            "Here is my punchLine/Mini intro.",
+            overflow: TextOverflow.clip,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 13,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              AnimatedContainer(
+                duration: Duration(seconds: 2),
+                color: Colors.grey,
+                child: IconButton(
+                  icon: Icon(Icons.subdirectory_arrow_left),
+                  onPressed: () {},
+                ),
+              ),
+              Container(
+                color: Colors.blue,
+                child: IconButton(
+                  color: Colors.black,
+                  alignment: Alignment.topRight,
+                  icon: Icon(Icons.keyboard_arrow_down),
+                  onPressed: widget.onExpandBio,
+                ),
+              )
+            ],
+          )
         ],
       ),
     );

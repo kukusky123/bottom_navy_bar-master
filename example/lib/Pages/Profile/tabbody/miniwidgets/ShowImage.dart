@@ -41,11 +41,12 @@ class _ShowImageState extends State<ShowImage> {
                   //Custom animation
                   Animation<Offset> custom = customTween.animate(animation);
                   return SlideTransition(
+                    textDirection: TextDirection.ltr,
                     position: custom,
                     child: child,
                   );
                 },
-                duration: Duration(milliseconds: 200),
+                duration: Duration(milliseconds: 100),
                 child: PhotoView(
                   key: ValueKey(index),
                   imageProvider: NetworkImage(widget.urls[index]),
@@ -77,6 +78,7 @@ class _ShowImageState extends State<ShowImage> {
 
   prevImagee(BuildContext context) {
     animationStart = Offset(1.0, 0.0);
+
     setState(() {
       index -= 1;
     });
