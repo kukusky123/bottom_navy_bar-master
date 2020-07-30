@@ -1,3 +1,4 @@
+import 'package:example/Pages/Profile/ProfileBio.dart';
 import 'package:example/Pages/Profile/tabbody/miniwidgets/topdeck.dart';
 import 'package:flutter/material.dart';
 
@@ -80,7 +81,7 @@ class _ProfileMainState extends State<ProfileMain>
               )
             ]);
       else if (_profilIndex == 1) {
-        return Text("GGEZ");
+        return ProfileBio();
       }
       print("Bio Tab");
     } else if (widget == 1) {
