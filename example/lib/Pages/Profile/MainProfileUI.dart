@@ -16,11 +16,13 @@ class _ProfileMainState extends State<ProfileMain>
   int _profilIndex = 1; //Used to determine which widget to show
   TabController tc;
   List<String> urlList;
+  IconData bioIcon;
   @override
   void initState() {
     super.initState();
     tc = new TabController(length: 3, vsync: this);
     urlList = widget.urlList;
+    bioIcon = Icons.arrow_drop_up;
   }
 
   @override
@@ -34,6 +36,7 @@ class _ProfileMainState extends State<ProfileMain>
             knows: 889,
             userName: "Poki",
             onExpandBio: expandBio,
+            bioIcon: bioIcon,
           ),
           widgetDecider(0),
           widgetDecider(1),
@@ -48,8 +51,12 @@ class _ProfileMainState extends State<ProfileMain>
     print("Expand bio ");
     setState(() {
       if (_profilIndex == 0) {
+        bioIcon = Icons.keyboard_arrow_up;
+
         _profilIndex = 1;
       } else if (_profilIndex == 1) {
+        bioIcon = Icons.keyboard_arrow_down;
+
         _profilIndex = 0;
       }
     });

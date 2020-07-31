@@ -5,13 +5,26 @@ class TopDeck extends StatefulWidget {
   final Function onExpandBio;
   final String userName, bio;
   final int known, knows;
-  TopDeck({this.bio, this.known, this.knows, this.userName, this.onExpandBio});
+  final IconData bioIcon;
+
+  TopDeck(
+      {this.bio,
+      this.known,
+      this.knows,
+      this.userName,
+      this.onExpandBio,
+      this.bioIcon});
 
   @override
   _TopDeckState createState() => _TopDeckState();
 }
 
 class _TopDeckState extends State<TopDeck> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -106,14 +119,6 @@ class _TopDeckState extends State<TopDeck> {
               fontSize: 18,
             ),
           ),
-          Text(
-            "Here is my punchLine/Mini intro.",
-            overflow: TextOverflow.clip,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 13,
-            ),
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -130,7 +135,7 @@ class _TopDeckState extends State<TopDeck> {
                 child: IconButton(
                   color: Colors.black,
                   alignment: Alignment.topRight,
-                  icon: Icon(Icons.keyboard_arrow_down),
+                  icon: Icon(widget.bioIcon),
                   onPressed: widget.onExpandBio,
                 ),
               )
