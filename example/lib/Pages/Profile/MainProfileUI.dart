@@ -27,24 +27,55 @@ class _ProfileMainState extends State<ProfileMain>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: <Widget>[
-          TopDeck(
-            bio: "Biolo",
-            known: 56,
-            knows: 889,
-            userName: "Poki",
-            onExpandBio: expandBio,
-            bioIcon: bioIcon,
-          ),
-          widgetDecider(0),
-          widgetDecider(1),
+    if (_profilIndex == 1) {
+      return SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  TopDeck(
+                    bio: "Biolo",
+                    known: 56,
+                    knows: 889,
+                    userName: "Poki",
+                    onExpandBio: expandBio,
+                    bioIcon: bioIcon,
+                  ),
 
 //
-        ],
-      ),
-    );
+                ],
+              ),
+              widgetDecider(0),
+              widgetDecider(1),
+            ],
+          ),
+        ),
+      );
+    } else {
+      return SafeArea(
+        child: Column(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                TopDeck(
+                  bio: "Biolo",
+                  known: 56,
+                  knows: 889,
+                  userName: "Poki",
+                  onExpandBio: expandBio,
+                  bioIcon: bioIcon,
+                ),
+
+//
+              ],
+            ),
+            widgetDecider(0),
+            widgetDecider(1),
+          ],
+        ),
+      );
+    }
   }
 
   expandBio() {
