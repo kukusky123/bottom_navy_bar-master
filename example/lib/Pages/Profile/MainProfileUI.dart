@@ -27,55 +27,7 @@ class _ProfileMainState extends State<ProfileMain>
 
   @override
   Widget build(BuildContext context) {
-    if (_profilIndex == 1) {
-      return SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  TopDeck(
-                    bio: "Biolo",
-                    known: 56,
-                    knows: 889,
-                    userName: "Poki",
-                    onExpandBio: expandBio,
-                    bioIcon: bioIcon,
-                  ),
-
-//
-                ],
-              ),
-              widgetDecider(0),
-              widgetDecider(1),
-            ],
-          ),
-        ),
-      );
-    } else {
-      return SafeArea(
-        child: Column(
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                TopDeck(
-                  bio: "Biolo",
-                  known: 56,
-                  knows: 889,
-                  userName: "Poki",
-                  onExpandBio: expandBio,
-                  bioIcon: bioIcon,
-                ),
-
-//
-              ],
-            ),
-            widgetDecider(0),
-            widgetDecider(1),
-          ],
-        ),
-      );
-    }
+    return isBioOpen();
   }
 
   expandBio() {
@@ -131,6 +83,58 @@ class _ProfileMainState extends State<ProfileMain>
           ),
         );
       } else if (_profilIndex == 1) return Container();
+    }
+  }
+
+  Widget isBioOpen() {
+    if (_profilIndex == 1) {
+      return SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  TopDeck(
+                    bio: "Biolo",
+                    known: 56,
+                    knows: 889,
+                    userName: "Poki",
+                    onExpandBio: expandBio,
+                    bioIcon: bioIcon,
+                  ),
+
+//
+                ],
+              ),
+              widgetDecider(0),
+              widgetDecider(1),
+            ],
+          ),
+        ),
+      );
+    } else {
+      return SafeArea(
+        child: Column(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                TopDeck(
+                  bio: "Biolo",
+                  known: 56,
+                  knows: 889,
+                  userName: "Poki",
+                  onExpandBio: expandBio,
+                  bioIcon: bioIcon,
+                ),
+
+//
+              ],
+            ),
+            widgetDecider(0),
+            widgetDecider(1),
+          ],
+        ),
+      );
     }
   }
 }
