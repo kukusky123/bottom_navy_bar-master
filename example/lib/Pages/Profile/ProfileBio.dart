@@ -96,7 +96,7 @@ class ProfileBio extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             Icon(
               LineAwesomeIcons.youtube,

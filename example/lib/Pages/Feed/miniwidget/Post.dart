@@ -1,3 +1,5 @@
+import 'package:example/Pages/Feed/miniwidget/miniWidgetOFPost/BottomSection.dart';
+import 'package:example/Pages/Feed/miniwidget/miniWidgetOFPost/PostPicture.dart';
 import 'package:flutter/material.dart';
 
 class Posts extends StatefulWidget {
@@ -22,69 +24,10 @@ class _PostsState extends State<Posts> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-      child: Column(
-        children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-            child: Image(image: NetworkImage(widget.link)),
-          ),
-          Container(
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-            color: Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 0, 10, 0),
-                      child: SizedBox(
-                        height: 25,
-                        width: 25,
-                        child: CircleAvatar(
-                          backgroundImage: NetworkImage(widget.link),
-                        ),
-                      ),
-                    ),
-                    Text(
-                      widget.name,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.favorite,
-                      color: Colors.black,
-                      size: 35,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 0, 10, 0),
-                      child: Icon(
-                        Icons.comment,
-                        color: Colors.black,
-                        size: 35,
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-          test(widget.desc)
-        ],
-      ),
-    );
+    return _builderv2();
   }
 
-  Widget test(String yourText) {
+  Widget _descriptionBuilder(String yourText) {
     return LayoutBuilder(builder: (context, size) {
       final span = TextSpan(
         text: yourText,
@@ -144,5 +87,26 @@ class _PostsState extends State<Posts> {
         );
       }
     });
+  }
+
+  Widget _builderv2() {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 30),
+      child: Column(
+        children: <Widget>[
+          PostPicMini(
+            link: widget.link,
+            onDoubleTap: () {
+              print("Double Tapped " + widget.link);
+            },
+          ),
+          BottomSection(
+            link: widget.link,
+            name: widget.name,
+          ),
+          _descriptionBuilder(widget.desc)
+        ],
+      ),
+    );
   }
 }

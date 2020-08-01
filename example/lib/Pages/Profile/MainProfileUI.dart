@@ -91,6 +91,7 @@ class _ProfileMainState extends State<ProfileMain>
     if (_profilIndex == 1) {
       return SafeArea(
         child: SingleChildScrollView(
+          physics: PageScrollPhysics(),
           child: Column(
             children: <Widget>[
               Column(

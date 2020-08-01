@@ -35,6 +35,7 @@ class _FeedMainState extends State<FeedMain>
 
   Widget nigger() {
     return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
       child: Column(
         children: List.generate(
             urls.length,
@@ -78,7 +79,7 @@ class _FeedMainState extends State<FeedMain>
         "https://img1.nickiswift.com/img/gallery/where-does-emilia-clarke-live-and-how-big-is-her-house/intro-1583262251.jpg");
 
     urls.add(
-        "https://vignette.wikia.nocookie.net/gameofthrones/images/9/99/Emilia_Clarke_SAG_awards_2016.jpg/revision/latest/top-crop/width/360/height/450?cb=20161215025937");
+        "https://images.unsplash.com/photo-1525857597365-5f6dbff2e36e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
 
     urls.add(
         "https://media.allure.com/photos/5cc76c7447850a05420c05b4/4:3/w_2031,h_1523,c_limit/0619-allure-cover-shoot-emilia-clarke-marina-moscone-dress.png");
