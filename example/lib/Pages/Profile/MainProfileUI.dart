@@ -102,8 +102,6 @@ class _ProfileMainState extends State<ProfileMain>
                     onExpandBio: expandBio,
                     bioIcon: bioIcon,
                   ),
-
-//
                 ],
               ),
               widgetDecider(0),
