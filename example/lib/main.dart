@@ -4,6 +4,7 @@ import 'package:example/Pages/Search/SearchMain.dart';
 import 'package:example/Pages/activity/ActivityMain.dart';
 import 'package:example/Pages/post/PostMain.dart';
 import 'package:flutter/material.dart';
+import 'package:line_awesome_icons/line_awesome_icons.dart';
 
 import 'NavigationBar/customNav.dart';
 
@@ -89,15 +90,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: pages[navIndex],
-        //ProfileMain(
-        //   urlList: urlForPics,
-        // ),
-        bottomNavigationBar: BottomNav(
-          currentIndex: navIndex,
-          onItemSelect: (i) => changePage(i),
-        ));
+    return builder();
   }
 
   changePage(i) {
@@ -105,6 +98,58 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       navIndex = i;
       print(i.toString() + " is the nav postion");
     });
+  }
+
+  Widget builder() {
+    if (navIndex == 2) {
+      return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            bottom: PreferredSize(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Icon(
+                            Icons.change_history,
+                            color: Colors.black,
+                            size: 35,
+                          ),
+                          Icon(
+                            LineAwesomeIcons.camera,
+                            size: 35,
+                            color: Colors.black,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                preferredSize: Size.fromHeight(0)),
+          ),
+          body: pages[navIndex],
+          //ProfileMain(
+          //   urlList: urlForPics,
+          // ),
+          bottomNavigationBar: BottomNav(
+            currentIndex: navIndex,
+            onItemSelect: (i) => changePage(i),
+          ));
+    } else {
+      return Scaffold(
+          body: pages[navIndex],
+          //ProfileMain(
+          //   urlList: urlForPics,
+          // ),
+          bottomNavigationBar: BottomNav(
+            currentIndex: navIndex,
+            onItemSelect: (i) => changePage(i),
+          ));
+    }
   }
 }
 /**

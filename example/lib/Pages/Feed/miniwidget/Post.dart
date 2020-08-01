@@ -22,62 +22,65 @@ class _PostsState extends State<Posts> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-          child: Image(image: NetworkImage(widget.link)),
-        ),
-        Container(
-          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-          color: Colors.white,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(8, 0, 10, 0),
-                    child: SizedBox(
-                      height: 25,
-                      width: 25,
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(widget.link),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+      child: Column(
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+            child: Image(image: NetworkImage(widget.link)),
+          ),
+          Container(
+            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            color: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 0, 10, 0),
+                      child: SizedBox(
+                        height: 25,
+                        width: 25,
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage(widget.link),
+                        ),
                       ),
                     ),
-                  ),
-                  Text(
-                    widget.name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                    Text(
+                      widget.name,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.favorite,
-                    color: Colors.black,
-                    size: 35,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(8, 0, 10, 0),
-                    child: Icon(
-                      Icons.comment,
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.favorite,
                       color: Colors.black,
                       size: 35,
                     ),
-                  ),
-                ],
-              )
-            ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 0, 10, 0),
+                      child: Icon(
+                        Icons.comment,
+                        color: Colors.black,
+                        size: 35,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
-        ),
-        test(widget.desc)
-      ],
+          test(widget.desc)
+        ],
+      ),
     );
   }
 
@@ -120,7 +123,7 @@ class _PostsState extends State<Posts> {
                   } else {
                     //Not expanded
                     isExpanded = true;
-                    maxLine = 4;
+                    maxLine = 10;
                     showmoreIcon = Icons.keyboard_arrow_up;
                   }
                 });

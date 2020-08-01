@@ -8,10 +8,13 @@ class FeedMain extends StatefulWidget {
   _FeedMainState createState() => _FeedMainState();
 }
 
-class _FeedMainState extends State<FeedMain> {
+class _FeedMainState extends State<FeedMain>
+    with SingleTickerProviderStateMixin {
   List<String> urls;
   List<String> descs;
   List<String> names;
+
+  TabController tc;
 
   @override
   void initState() {
@@ -19,43 +22,54 @@ class _FeedMainState extends State<FeedMain> {
     urls = new List();
     descs = new List();
     names = new List();
+    tc = new TabController(length: 1, vsync: this);
     addTESTDATA();
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Wrap(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Icon(
-                  LineAwesomeIcons.camera,
-                  color: Colors.black,
-                  size: 35,
-                ),
-                Icon(
-                  Icons.change_history,
-                  size: 35,
-                )
-              ],
-            ),
-          ),
-          Column(
-            children: List.generate(
-                urls.length,
-                (index) => Posts(
-                      desc: descs[index],
-                      likes: '',
-                      link: urls[index],
-                      name: names[index],
-                    )),
-          )
-        ],
+      child: nigger(),
+    );
+  }
+
+  Widget nigger() {
+    return SingleChildScrollView(
+      child: Column(
+        children: List.generate(
+            urls.length,
+            (index) => Posts(
+                  desc: descs[index],
+                  likes: '',
+                  link: urls[index],
+                  name: names[index],
+                )),
       ),
+    );
+  }
+
+  Widget fix() {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Icon(
+                LineAwesomeIcons.camera,
+                color: Colors.black,
+                size: 35,
+              ),
+              Icon(
+                Icons.change_history,
+                size: 35,
+                color: Colors.black,
+              )
+            ],
+          ),
+        ),
+      ],
     );
   }
 
