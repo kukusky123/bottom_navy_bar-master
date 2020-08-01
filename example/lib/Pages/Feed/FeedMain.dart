@@ -44,17 +44,15 @@ class _FeedMainState extends State<FeedMain> {
               ],
             ),
           ),
-          SingleChildScrollView(
-            child: Column(
-              children: List.generate(
-                  urls.length,
-                  (index) => Posts(
-                        desc: descs[index],
-                        likes: '',
-                        link: urls[index],
-                        name: names[index],
-                      )),
-            ),
+          Column(
+            children: List.generate(
+                urls.length,
+                (index) => Posts(
+                      desc: descs[index],
+                      likes: '',
+                      link: urls[index],
+                      name: names[index],
+                    )),
           )
         ],
       ),
