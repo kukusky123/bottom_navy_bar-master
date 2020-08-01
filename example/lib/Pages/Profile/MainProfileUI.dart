@@ -1,6 +1,7 @@
 import 'package:example/Pages/Profile/ProfileBio.dart';
 import 'package:example/Pages/Profile/tabbody/miniwidgets/topdeck.dart';
 import 'package:flutter/material.dart';
+import 'package:line_awesome_icons/line_awesome_icons.dart';
 
 import 'ProfileBody.dart';
 
@@ -55,17 +56,17 @@ class _ProfileMainState extends State<ProfileMain>
             unselectedLabelColor: Colors.amberAccent,
             tabs: [
               Icon(
-                Icons.photo_size_select_actual,
+                LineAwesomeIcons.photo,
                 color: Colors.black,
                 size: 28,
               ),
               Icon(
-                Icons.link,
+                LineAwesomeIcons.link,
                 color: Colors.black,
                 size: 28,
               ),
               Icon(
-                Icons.dashboard,
+                LineAwesomeIcons.file,
                 color: Colors.black,
                 size: 28,
               )

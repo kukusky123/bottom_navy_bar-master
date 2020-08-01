@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:line_awesome_icons/line_awesome_icons.dart';
 
 class TopDeck extends StatefulWidget {
   //PICTURE FOR FUTURE
@@ -20,6 +21,10 @@ class TopDeck extends StatefulWidget {
 }
 
 class _TopDeckState extends State<TopDeck> {
+  Color followColor = Colors.white24;
+  bool isFollowing = false;
+  Color bioColor = Colors.white;
+  bool isExpanded = false;
   @override
   void initState() {
     super.initState();
@@ -120,23 +125,46 @@ class _TopDeckState extends State<TopDeck> {
             ),
           ),
           Row(
+            //FOLOLOW BUTTON WILL ANIMATE WHEN CLICKED
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               AnimatedContainer(
-                duration: Duration(seconds: 2),
-                color: Colors.grey,
+                duration: Duration(milliseconds: 300),
+                color: followColor,
                 child: IconButton(
-                  icon: Icon(Icons.subdirectory_arrow_left),
-                  onPressed: () {},
+                  icon: Icon(LineAwesomeIcons.fire),
+                  onPressed: () {
+                    setState(() {
+                      if (isFollowing) {
+                        followColor = Colors.white38;
+                        isFollowing = isFollowing = false;
+                      } else if (isFollowing == false) {
+                        followColor = Colors.blueGrey;
+                        isFollowing = isFollowing = true;
+                      }
+                    });
+                  },
                 ),
               ),
-              Container(
-                color: Colors.blue,
+              AnimatedContainer(
+                duration: Duration(milliseconds: 300),
+                color: bioColor,
                 child: IconButton(
                   color: Colors.black,
                   alignment: Alignment.topRight,
                   icon: Icon(widget.bioIcon),
-                  onPressed: widget.onExpandBio,
+                  onPressed: () {
+                    setState(() {
+                      widget.onExpandBio();
+                      if (isExpanded) {
+                        bioColor = Colors.yellow;
+                        isExpanded = false;
+                      } else {
+                        bioColor = Colors.black;
+                        isExpanded = true;
+                      }
+                    });
+                  },
                 ),
               )
             ],

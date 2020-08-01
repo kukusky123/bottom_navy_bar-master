@@ -17,7 +17,12 @@ class BottomNav extends StatelessWidget {
       onItemSelected: (index) => onItemSelect(index),
       items: [
         BottomNavyBarItem(
-          icon: Icon(Icons.account_circle),
+          icon: CircleAvatar(
+            backgroundImage: NetworkImage(
+              "https://i.pinimg.com/236x/1b/31/6d/1b316d31b5a7c16ad5ea696e8d6f73de.jpg",
+            ),
+            radius: 15,
+          ),
           title: Text('Account'),
           activeColor: Colors.black,
           textAlign: TextAlign.center,
