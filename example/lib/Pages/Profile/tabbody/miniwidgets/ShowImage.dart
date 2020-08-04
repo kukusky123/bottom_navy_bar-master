@@ -69,6 +69,25 @@ class _ShowImageState extends State<ShowImage> {
                         ? null
                         : () => nextImage(context)),
               ],
+            ),
+            Positioned(
+              left: 0,
+              bottom: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.favorite_border),
+                    onPressed: () {},
+                    iconSize: 40,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.comment),
+                    onPressed: () {},
+                    iconSize: 40,
+                  )
+                ],
+              ),
             )
           ],
         ),

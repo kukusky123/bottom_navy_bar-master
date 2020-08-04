@@ -102,6 +102,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget builder() {
     if (navIndex == 2) {
       return Scaffold(
+          resizeToAvoidBottomInset: true,
+          resizeToAvoidBottomPadding: true,
           appBar: AppBar(
             backgroundColor: Colors.white,
             actions: <Widget>[
@@ -131,6 +133,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           ));
     } else {
       return Scaffold(
+          resizeToAvoidBottomInset: true,
+          resizeToAvoidBottomPadding: true,
           body: pages[navIndex],
           //ProfileMain(
           //   urlList: urlForPics,
