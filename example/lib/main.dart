@@ -1,3 +1,4 @@
+import 'package:example/Pages/ChatList/ChatList_1.dart';
 import 'package:example/Pages/Feed/FeedMain.dart';
 import 'package:example/Pages/Profile/MainProfileUI.dart';
 import 'package:example/Pages/Search/SearchMain.dart';
@@ -71,13 +72,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKyH727LvcNc1IbLtFPQNiDJv3XMln91YsJA&usqp=CAU");
     urlForPics.add(
         "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBXi1KDABB3KbbR46Up4MjR8Qlq3VhjXiwWw&usqp=CAU");
-
+    pages.add(ChatList_1());
     pages.add(ProfileMain(
       urlList: urlForPics,
     ));
-    pages.add(SearchMain());
     pages.add(FeedMain());
-    pages.add(ActivityMain());
+    pages.add(SearchMain());
     pages.add(PostMain());
   }
 
@@ -136,9 +136,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           resizeToAvoidBottomInset: true,
           resizeToAvoidBottomPadding: true,
           body: pages[navIndex],
-          //ProfileMain(
-          //   urlList: urlForPics,
-          // ),
           bottomNavigationBar: BottomNav(
             currentIndex: navIndex,
             onItemSelect: (i) => changePage(i),
