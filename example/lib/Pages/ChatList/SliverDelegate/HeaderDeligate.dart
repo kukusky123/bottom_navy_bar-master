@@ -79,7 +79,7 @@ class HeaderDeligate extends SliverPersistentHeaderDelegate {
 
   Widget searchBar(double shrinkoffset) {
     return Transform.translate(
-      offset: Offset(shrinkoffset * 2, 0),
+      offset: Offset(shrinkoffset * 2.5, 0),
       child: Transform.rotate(
         angle: shrinkoffset * 0,
         child: TextField(

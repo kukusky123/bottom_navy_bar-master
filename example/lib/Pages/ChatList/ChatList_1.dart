@@ -8,6 +8,7 @@ class ChatList_1 extends StatelessWidget {
     return CustomScrollView(slivers: <Widget>[
       SliverPersistentHeader(
           pinned: true,
+          floating: true,
           delegate: HeaderDeligate(
               closedHeight: 30, openHeight: 40, toolBarHeight: 110)),
       SliverList(
