@@ -10,7 +10,7 @@ class ChatList_1 extends StatelessWidget {
           pinned: true,
           floating: true,
           delegate: HeaderDeligate(
-              closedHeight: 30, openHeight: 40, toolBarHeight: 110)),
+              closedHeight: 20, openHeight: 30, toolBarHeight: 100)),
       SliverList(
         delegate: SliverChildBuilderDelegate((context, index) {
           return Container(
