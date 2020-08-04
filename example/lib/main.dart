@@ -2,7 +2,6 @@ import 'package:example/Pages/ChatList/ChatList_1.dart';
 import 'package:example/Pages/Feed/FeedMain.dart';
 import 'package:example/Pages/Profile/MainProfileUI.dart';
 import 'package:example/Pages/Search/SearchMain.dart';
-import 'package:example/Pages/activity/ActivityMain.dart';
 import 'package:example/Pages/post/PostMain.dart';
 import 'package:flutter/material.dart';
 
