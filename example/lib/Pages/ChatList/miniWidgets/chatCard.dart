@@ -1,14 +1,15 @@
 //import 'package:chat_app/modules/chat_detail_page.dart';
+import 'package:example/Pages/ChatList/ConversationUI/Conversation_1.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class ChatListWidget extends StatelessWidget {
+class ChatCard extends StatelessWidget {
   String text;
   String secondaryText;
   String image;
   String time;
   bool isMessageRead;
-  ChatListWidget(
+  ChatCard(
       {@required this.text,
       @required this.secondaryText,
       @required this.image,
@@ -18,7 +19,9 @@ class ChatListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        navigateToConversation(context);
+      },
       child: Container(
         padding: EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
         child: Row(
@@ -64,6 +67,28 @@ class ChatListWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void navigateToConversation(BuildContext context) {
+    Navigator.push(context, _customRoute());
+  }
+
+  Route _customRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return Conversation_1();
+      },
+      transitionDuration: Duration(milliseconds: 300),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        animation =
+            CurvedAnimation(parent: animation, curve: Curves.elasticInOut);
+        return ScaleTransition(
+          scale: animation,
+          child: child,
+          alignment: Alignment.center,
+        );
+      },
     );
   }
 }
