@@ -165,6 +165,18 @@ class _Conversation_1State extends State<Conversation_1> {
                     width: 16,
                     height: 30,
                   ),
+                  Container(
+                    padding: EdgeInsets.only(right: 0, bottom: 10),
+                    child: FloatingActionButton(
+                      onPressed: () {},
+                      child: Icon(
+                        Icons.change_history,
+                        color: Colors.white,
+                      ),
+                      backgroundColor: Colors.black,
+                      elevation: 10,
+                    ),
+                  ),
                   Expanded(
                     child: TextField(
                       keyboardType: TextInputType.multiline,
@@ -180,21 +192,6 @@ class _Conversation_1State extends State<Conversation_1> {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Container(
-              padding: EdgeInsets.only(right: 17, bottom: 10),
-              child: FloatingActionButton(
-                onPressed: () {},
-                child: Icon(
-                  Icons.send,
-                  color: Colors.white,
-                ),
-                backgroundColor: Colors.black,
-                elevation: 10,
-              ),
-            ),
-          )
         ],
       ),
     );
