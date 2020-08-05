@@ -25,7 +25,7 @@ class _ChatBubbleState extends State<ChatBubble> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: (widget.chatMessage.type == MessageType.Receiver
-                ? Colors.white10
+                ? Colors.blueGrey[100]
                 : Colors.black),
           ),
           padding: EdgeInsets.all(16),

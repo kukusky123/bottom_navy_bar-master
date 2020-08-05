@@ -10,7 +10,11 @@ class Conversation_1 extends StatefulWidget {
   _Conversation_1State createState() => _Conversation_1State();
 }
 
+// ignore: camel_case_types
 class _Conversation_1State extends State<Conversation_1> {
+  double curerntRotation = 0;
+  bool shouldRotate;
+  TextEditingController textFieldController;
   void showModal() {
     showModalBottomSheet(
         context: context,
@@ -79,6 +83,7 @@ class _Conversation_1State extends State<Conversation_1> {
   @override
   void initState() {
     super.initState();
+    textFieldController = new TextEditingController();
   }
 
   List<SendMenuItems> menuItems = [
@@ -112,7 +117,7 @@ class _Conversation_1State extends State<Conversation_1> {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 60),
                         child: ListView.builder(
-                          itemCount: 30,
+                          itemCount: 300,
                           shrinkWrap: true,
                           padding: EdgeInsets.only(top: 10, bottom: 10),
                           physics: NeverScrollableScrollPhysics(),
@@ -135,13 +140,14 @@ class _Conversation_1State extends State<Conversation_1> {
             ),
           ),
           Align(
-            alignment: Alignment.bottomLeft,
+            alignment: Alignment.bottomRight,
             child: Container(
               padding: EdgeInsets.only(left: 16, bottom: 10),
               height: 55,
               width: double.infinity,
               color: Colors.white,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   GestureDetector(
                     onTap: () {
@@ -161,6 +167,21 @@ class _Conversation_1State extends State<Conversation_1> {
                       ),
                     ),
                   ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      child: TextField(
+                        onChanged: (value) => _calcute_rotation(value),
+                        keyboardType: TextInputType.multiline,
+                        enableSuggestions: true,
+                        autofocus: true,
+                        decoration: InputDecoration(
+                            hintText: "Type a message...",
+                            hintStyle: TextStyle(color: Colors.grey.shade500),
+                            border: InputBorder.none),
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     width: 16,
                     height: 30,
@@ -169,23 +190,15 @@ class _Conversation_1State extends State<Conversation_1> {
                     padding: EdgeInsets.only(right: 0, bottom: 10),
                     child: FloatingActionButton(
                       onPressed: () {},
-                      child: Icon(
-                        Icons.change_history,
-                        color: Colors.white,
+                      child: Transform.rotate(
+                        angle: curerntRotation,
+                        child: Icon(
+                          Icons.send,
+                          color: Colors.white,
+                        ),
                       ),
                       backgroundColor: Colors.black,
                       elevation: 10,
-                    ),
-                  ),
-                  Expanded(
-                    child: TextField(
-                      keyboardType: TextInputType.multiline,
-                      maxLines: 100,
-                      autofocus: true,
-                      decoration: InputDecoration(
-                          hintText: "Type a message...",
-                          hintStyle: TextStyle(color: Colors.grey.shade500),
-                          border: InputBorder.none),
                     ),
                   ),
                 ],
@@ -195,5 +208,31 @@ class _Conversation_1State extends State<Conversation_1> {
         ],
       ),
     );
+  }
+
+  ///Calculates the rotation to rotate the send button on every letter the user typing in the textfield
+  ///The rotation has to be done as we go through every char of a string so that we user copy pastes it is still going to function.
+  ///This function is called onChange of the TextField
+  // ignore: non_constant_identifier_names
+  void _calcute_rotation(String string) {
+    setState(() {
+      curerntRotation += 0.05;
+    });
+    // return;
+    // List<dynamic> chars = new List();
+    // string.trim().runes.forEach((element) {
+    //   chars.add(String.fromCharCode(element));
+    //   print(String.fromCharCode(element));
+    // });
+
+    // if (curerntRotation == null) {
+    //   curerntRotation = 0;
+    // } else {
+    //   setState(() {
+    //     for (int i = 0; i < chars.length; i++) {
+    //       curerntRotation += 0.1;
+    //     }
+    //   });
+    // }
   }
 }
