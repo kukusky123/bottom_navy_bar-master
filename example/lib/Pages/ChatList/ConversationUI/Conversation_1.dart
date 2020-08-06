@@ -11,7 +11,8 @@ class Conversation_1 extends StatefulWidget {
 }
 
 // ignore: camel_case_types
-class _Conversation_1State extends State<Conversation_1> {
+class _Conversation_1State extends State<Conversation_1>
+    with SingleTickerProviderStateMixin {
   double curerntRotation = 0;
   bool shouldRotate;
   TextEditingController textFieldController;
@@ -167,11 +168,10 @@ class _Conversation_1State extends State<Conversation_1> {
                       ),
                     ),
                   ),
-                  Expanded(
+                  Flexible(
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: TextField(
-                        onChanged: (value) => _calcute_rotation(value),
                         keyboardType: TextInputType.multiline,
                         enableSuggestions: true,
                         autofocus: true,
@@ -214,25 +214,5 @@ class _Conversation_1State extends State<Conversation_1> {
   ///The rotation has to be done as we go through every char of a string so that we user copy pastes it is still going to function.
   ///This function is called onChange of the TextField
   // ignore: non_constant_identifier_names
-  void _calcute_rotation(String string) {
-    setState(() {
-      curerntRotation += 0.05;
-    });
-    // return;
-    // List<dynamic> chars = new List();
-    // string.trim().runes.forEach((element) {
-    //   chars.add(String.fromCharCode(element));
-    //   print(String.fromCharCode(element));
-    // });
 
-    // if (curerntRotation == null) {
-    //   curerntRotation = 0;
-    // } else {
-    //   setState(() {
-    //     for (int i = 0; i < chars.length; i++) {
-    //       curerntRotation += 0.1;
-    //     }
-    //   });
-    // }
-  }
 }
